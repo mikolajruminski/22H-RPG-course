@@ -298,13 +298,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3768772692439469640, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
+      propertyPath: areaEntrance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6907021653269517176, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6907021653269517176, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.32
+      value: 9.05
       objectReference: {fileID: 0}
     - target: {fileID: 6907021653269517176, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -342,9 +346,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6907021653269517178, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
+      propertyPath: nextAreaEntrance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6907021653269517179, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
       propertyPath: m_Name
       value: Area exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664751083699815529, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc480566623f8a49932d0ff3b5fe3c8, type: 3}

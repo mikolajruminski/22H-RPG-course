@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private Rigidbody2D playerRB;
     [SerializeField] private float playerSpeedMultiplier;
+    private PlayerAreaEnterPossibilitesScript.AreaEntrances areaEntrance;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,5 +48,15 @@ public class Player : MonoBehaviour
     public Rigidbody2D ReturnPlayerRB()
     {
         return playerRB;
+    }
+
+    public void SetNextAreaEntrancePoint(PlayerAreaEnterPossibilitesScript.AreaEntrances areaEntrance)
+    {
+        this.areaEntrance = areaEntrance;
+    }
+
+    public PlayerAreaEnterPossibilitesScript.AreaEntrances GetNextAreaEntrancePoint()
+    {
+        return areaEntrance;
     }
 }

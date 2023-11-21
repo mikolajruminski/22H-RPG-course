@@ -16,8 +16,12 @@ public class PlayerAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("movementX", player.ReturnPlayerRB().velocity.x);
-        animator.SetFloat("movementY", player.ReturnPlayerRB().velocity.y);
+        if (!Player.Instance.deactivatedMovement)
+        {
+            animator.SetFloat("movementX", player.ReturnPlayerRB().velocity.x);
+            animator.SetFloat("movementY", player.ReturnPlayerRB().velocity.y);
+        }
+
 
         if (player.ReturnPlayerRB().velocity.y != 0)
         {

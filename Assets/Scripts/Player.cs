@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRB;
     [SerializeField] private float playerSpeedMultiplier;
     private PlayerAreaEnterPossibilitesScript.AreaEntrances areaEntrance;
+
+    private Vector3 bottomLeftEdge;
+    private Vector3 topRightEdge;
+    public bool deactivatedMovement;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -28,13 +34,30 @@ public class Player : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+    }
+
+    private void Update()
+    {
+        transform.position = new Vector3(
+        Mathf.Clamp(transform.position.x, bottomLeftEdge.x, topRightEdge.x),
+        Mathf.Clamp(transform.position.y, bottomLeftEdge.y, topRightEdge.y),
+        Mathf.Clamp(transform.position.z, bottomLeftEdge.z, topRightEdge.z));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 movementVector = GetMovementVector();
-        playerRB.velocity = new Vector2(movementVector.x, movementVector.y) * playerSpeedMultiplier * Time.deltaTime;
+        if (deactivatedMovement)
+        {
+            playerRB.velocity = Vector2.zero;
+        }
+        else
+        {
+            Vector2 movementVector = GetMovementVector();
+            playerRB.velocity = new Vector2(movementVector.x, movementVector.y) * playerSpeedMultiplier * Time.deltaTime;
+        }
+
     }
 
     private Vector2 GetMovementVector()
@@ -58,5 +81,11 @@ public class Player : MonoBehaviour
     public PlayerAreaEnterPossibilitesScript.AreaEntrances GetNextAreaEntrancePoint()
     {
         return areaEntrance;
+    }
+
+    public void SetLimits(Vector3 bottomEdgeToSet, Vector3 topEdgeToSet)
+    {
+        bottomLeftEdge = bottomEdgeToSet;
+        topRightEdge = topEdgeToSet;
     }
 }

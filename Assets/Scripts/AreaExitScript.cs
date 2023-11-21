@@ -13,7 +13,14 @@ public class AreaExitScript : MonoBehaviour
         if (other.TryGetComponent(out Player player))
         {
             PlayerAreaEnterPossibilitesScript.SetAreaEntrance(nextAreaEntrance);
-            SceneManager.LoadScene(sceneToLoad);
+            MenuManager.Instance.FadeImage();
+            StartCoroutine(LoadSceneCoroutine());
         }
+    }
+
+    private IEnumerator LoadSceneCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

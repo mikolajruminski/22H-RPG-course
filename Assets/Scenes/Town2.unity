@@ -1746,6 +1746,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3122066549907872172, guid: 5ae18fe3b9c700e46a08d8c9da3b2060, type: 3}
+      propertyPath: currentHP
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122066549907872172, guid: 5ae18fe3b9c700e46a08d8c9da3b2060, type: 3}
       propertyPath: currentXP
       value: 36
       objectReference: {fileID: 0}
@@ -1756,6 +1760,10 @@ PrefabInstance:
     - target: {fileID: 3122066549907872172, guid: 5ae18fe3b9c700e46a08d8c9da3b2060, type: 3}
       propertyPath: playerName
       value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122066549907872172, guid: 5ae18fe3b9c700e46a08d8c9da3b2060, type: 3}
+      propertyPath: currentMana
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3122066549907872172, guid: 5ae18fe3b9c700e46a08d8c9da3b2060, type: 3}
       propertyPath: characterImage
@@ -20660,15 +20668,27 @@ PrefabInstance:
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: xpText.Array.data[0]
       value: 
-      objectReference: {fileID: 204346775}
+      objectReference: {fileID: 971782965}
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: xpText.Array.data[1]
       value: 
-      objectReference: {fileID: 790766646}
+      objectReference: {fileID: 1049375910}
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: xpText.Array.data[2]
       value: 
-      objectReference: {fileID: 404905636}
+      objectReference: {fileID: 2122815866}
+    - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
+      propertyPath: xpText.Array.data[3]
+      value: 
+      objectReference: {fileID: 971782965}
+    - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
+      propertyPath: xpText.Array.data[4]
+      value: 
+      objectReference: {fileID: 1049375910}
+    - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
+      propertyPath: xpText.Array.data[5]
+      value: 
+      objectReference: {fileID: 2122815866}
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: lvlText.Array.data[0]
       value: 
@@ -20676,7 +20696,7 @@ PrefabInstance:
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: lvlText.Array.data[1]
       value: 
-      objectReference: {fileID: 1955003369}
+      objectReference: {fileID: 1709905567}
     - target: {fileID: 1477953395673195604, guid: 79d1bb4c788a11a4f83db09208831553, type: 3}
       propertyPath: lvlText.Array.data[2]
       value: 

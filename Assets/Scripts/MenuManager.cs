@@ -58,6 +58,20 @@ public class MenuManager : MonoBehaviour
         for (int i = 0; i < playerStats.Length; i++)
         {
             characterPanel[i].gameObject.SetActive(true);
+
+            nameText[i].text = playerStats[i].playerName;
+            hpText[i].text = "HP: " + playerStats[i].currentHP + "/" + playerStats[i].maxHP;
+            manaText[i].text = "MP: " + playerStats[i].currentMana + "/" + playerStats[i].maxMana;
+
+            lvlText[i].text = "Current XP: " + playerStats[i].currentXP;
+
+            xpText[i].text = playerStats[i].currentXP.ToString() + "/" + playerStats[i].xpForEachLevel[playerStats[i].playerLevel];
+
+            xpSlider[i].maxValue = playerStats[i].xpForEachLevel[playerStats[i].playerLevel];
+
+            xpSlider[i].value = playerStats[i].currentXP;
+
+            playerImage[i].sprite = playerStats[i].characterImage;
         }
     }
 }

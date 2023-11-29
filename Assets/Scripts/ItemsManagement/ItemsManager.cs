@@ -32,4 +32,13 @@ public class ItemsManager : MonoBehaviour
     {
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out Player player))
+        {
+            Inventory.Instance.AddItems(this);
+            Destroy(gameObject);
+        }
+    }
 }

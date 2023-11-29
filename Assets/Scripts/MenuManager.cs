@@ -19,6 +19,9 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI statName, statHP, statMana, statDex, statDef;
     [SerializeField] private Image charStatImage;
+
+    [SerializeField] private GameObject itemSlotContainer;
+    [SerializeField] private Transform itemSlotContainerParent;
     // Start is called before the first frame update
 
     private void Awake()
@@ -108,5 +111,21 @@ public class MenuManager : MonoBehaviour
 
         charStatImage.sprite = playerSelected.characterImage;
 
+    }
+
+    public void UpdateItemsInventory()
+    {
+        foreach (Transform itemSlot in itemSlotContainerParent)
+        {
+            Destroy(itemSlot.gameObject);
+        }
+
+        foreach (ItemsManager item in Inventory.Instance.ReturnItemsList())
+        {
+            RectTransform itemSlot = Instantiate(itemSlotContainer, itemSlotContainerParent).GetComponent<RectTransform>();
+
+            Image itemImage = itemSlot.Find("ItemsImage").GetComponent<Image>();
+            itemImage.sprite = item.itemImage;
+        }
     }
 }

@@ -9,11 +9,16 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Image imageToFade;
     [SerializeField] private GameObject menu;
 
+    [SerializeField] private GameObject[] statsButtons;
+
     private PlayerStats[] playerStats;
     [SerializeField] TextMeshProUGUI[] nameText, hpText, manaText, lvlText, xpText;
     [SerializeField] Slider[] xpSlider;
     [SerializeField] Image[] playerImage;
     [SerializeField] GameObject[] characterPanel;
+
+    [SerializeField] private TextMeshProUGUI statName, statHP, statMana, statDex, statDef;
+    [SerializeField] private Image charStatImage;
     // Start is called before the first frame update
 
     private void Awake()
@@ -73,5 +78,35 @@ public class MenuManager : MonoBehaviour
 
             playerImage[i].sprite = playerStats[i].characterImage;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("we've quit the game");
+    }
+
+    public void StatsMenu()
+    {
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            statsButtons[i].SetActive(true);
+            statsButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = playerStats[i].playerName;
+
+            StatsMenuUpdate(0);
+        }
+    }
+
+    public void StatsMenuUpdate(int playerNumber)
+    {
+        PlayerStats playerSelected = playerStats[playerNumber];
+        statName.text = playerSelected.playerName;
+        statHP.text = playerSelected.currentHP.ToString() + "/" + playerSelected.maxHP;
+        statMana.text = playerSelected.currentMana.ToString() + "/" + playerSelected.maxMana;
+        statDex.text = playerSelected.dexterity.ToString();
+        statDef.text = playerSelected.defence.ToString();
+
+        charStatImage.sprite = playerSelected.characterImage;
+
     }
 }

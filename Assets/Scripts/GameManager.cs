@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private PlayerStats[] playerStats;
-    public bool gameMenuOpened, dialogBoxOpened;
+    public bool gameMenuOpened, dialogBoxOpened, shopOpened;
+    public int currentGold;
     // Start is called before the first frame update
 
     private void Awake()
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameMenuOpened || dialogBoxOpened)
+        if (gameMenuOpened || dialogBoxOpened || shopOpened)
         {
             Player.Instance.deactivatedMovement = true;
         }

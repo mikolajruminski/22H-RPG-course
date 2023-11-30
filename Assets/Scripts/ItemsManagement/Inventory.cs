@@ -33,9 +33,54 @@ public class Inventory : MonoBehaviour
 
     public void AddItems(ItemsManager item)
     {
-        Debug.Log(item.itemName + "has been added to the inventory");
-        itemsList.Add(item);
-        print(itemsList.Count);
+        if (item.isStackable)
+        {
+            bool itemAlreadyInInventory = false;
+
+
+            foreach (ItemsManager itemInInventory in itemsList)
+            {
+                if (itemInInventory.itemName == item.itemName)
+                {
+                    itemInInventory.amountOfStacks += item.amountOfStacks;
+                    itemAlreadyInInventory = true;
+                }
+            }
+            if (!itemAlreadyInInventory)
+            {
+                itemsList.Add(item);
+            }
+        }
+        else
+        {
+            itemsList.Add(item);
+        }
+    }
+
+    public void RemoveItems(ItemsManager itemToRemove)
+    {
+        if (itemToRemove.isStackable)
+        {
+            ItemsManager inventoryItem = null;
+
+            foreach (ItemsManager item in itemsList)
+            {
+                if (item.itemName == itemToRemove.itemName)
+                {
+                    item.amountOfStacks--;
+                    inventoryItem = item;
+                }
+            }
+
+            if (inventoryItem != null && inventoryItem.amountOfStacks <= 0)
+            {
+                itemsList.Remove(inventoryItem);
+            }
+        }
+        else
+        {
+            itemsList.Remove(itemToRemove);
+        }
     }
 
     public List<ItemsManager> ReturnItemsList()

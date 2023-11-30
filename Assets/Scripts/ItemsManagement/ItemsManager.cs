@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ItemsManager : MonoBehaviour
@@ -21,6 +22,9 @@ public class ItemsManager : MonoBehaviour
     public AffectType affectType;
     public int weaponDex;
     public int armorDefence;
+    public bool isStackable;
+    public int amountOfStacks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +42,7 @@ public class ItemsManager : MonoBehaviour
         if (other.TryGetComponent(out Player player))
         {
             Inventory.Instance.AddItems(this);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

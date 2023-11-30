@@ -22,6 +22,9 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private GameObject itemSlotContainer;
     [SerializeField] private Transform itemSlotContainerParent;
+
+    public TextMeshProUGUI itemNameText, itemDescriptionText;
+    public ItemsManager activeItem;
     // Start is called before the first frame update
 
     private void Awake()
@@ -126,6 +129,25 @@ public class MenuManager : MonoBehaviour
 
             Image itemImage = itemSlot.Find("ItemsImage").GetComponent<Image>();
             itemImage.sprite = item.itemImage;
+
+            TextMeshProUGUI amountText = itemSlot.Find("AmountText").GetComponent<TextMeshProUGUI>();
+
+            if (item.amountOfStacks > 1)
+            {
+                amountText.text = item.amountOfStacks.ToString();
+            }
+            else
+            {
+                amountText.text = "";
+            }
+
+            itemSlot.GetComponent<ItemButton>().itemOnButton = item;
         }
+    }
+
+    public void DiscardItem()
+    {
+        Inventory.Instance.RemoveItems(activeItem);
+        UpdateItemsInventory();
     }
 }

@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance { get; private set; }
     [SerializeField] private Image imageToFade;
-    [SerializeField] private GameObject menu;
+    [SerializeField] public GameObject menu;
 
     [SerializeField] private GameObject[] statsButtons;
 

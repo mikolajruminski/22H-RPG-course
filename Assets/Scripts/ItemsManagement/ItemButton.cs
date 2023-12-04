@@ -18,7 +18,7 @@ public class ItemButton : MonoBehaviour
             MenuManager.Instance.activeItem = itemOnButton;
         }
 
-        if (ShopManager.Instance.shopMenu.activeInHierarchy)
+        if (ShopManager.Instance != null && ShopManager.Instance.shopMenu.activeInHierarchy)
         {
             if (ShopManager.Instance.buyPanel.activeInHierarchy)
             {

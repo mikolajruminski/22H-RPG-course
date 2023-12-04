@@ -16476,6 +16476,25 @@ MonoBehaviour:
   - Steal The Gem
   - Take Monster Soul
   questMarkersCompleted: 
+--- !u!114 &7060665504950909394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060665504950909389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4f11111ac99674ca701e6bc3c42910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsAvailable:
+  - {fileID: 477582642307560831, guid: 3e563bbe76240024c98c0b1cd57606ea, type: 3}
+  - {fileID: 2512977897291924991, guid: 8420528a40696564bad09731aee37c0b, type: 3}
+  - {fileID: 6896254518563889825, guid: 1cd580a8a74beba4aad5b92282ca39eb, type: 3}
+  - {fileID: 7989012665192576775, guid: 8397e8f3314121a4bbdaa479e0e2de69, type: 3}
+  - {fileID: 2961555038294637791, guid: a7d0792d59cc2f84c8d12eefd8b570e0, type: 3}
+  - {fileID: 7535097297724548450, guid: 195ede43203df1147bb7bde99f696a14, type: 3}
 --- !u!1001 &7535097298100998631
 PrefabInstance:
   m_ObjectHideFlags: 0

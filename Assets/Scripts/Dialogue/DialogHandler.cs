@@ -6,6 +6,11 @@ public class DialogHandler : MonoBehaviour
 {
     public string[] sentences;
     private bool canActivate;
+
+    [SerializeField] private bool shouldActivateQuest;
+    [SerializeField] private string questToMark;
+    [SerializeField] private bool markAsComplete;
+
     void Start()
     {
 
@@ -17,6 +22,11 @@ public class DialogHandler : MonoBehaviour
         if (canActivate && Input.GetKeyDown(KeyCode.E) && !DialogueController.Instance.IsDialogActive())
         {
             DialogueController.Instance.ActivateDialog(sentences);
+
+            if (shouldActivateQuest) 
+            {
+                DialogueController.Instance.ActivateQuestAtTheEnd(questToMark, markAsComplete);
+            }
         }
     }
 

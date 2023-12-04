@@ -16,6 +16,10 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private string[] dialogueLines;
     [SerializeField] private int currentLine;
     private bool dialogueJustStarted;
+
+    private string questToMark;
+    private bool markTheQuestComplete;
+    private bool shouldMarkQuest;
     // Start is called before the first frame update
 
     private void Awake()
@@ -44,6 +48,20 @@ public class DialogueController : MonoBehaviour
                     {
                         dialogBox.SetActive(false);
                         GameManager.Instance.dialogBoxOpened = false;
+
+                        if (shouldMarkQuest)
+                        {
+                            shouldMarkQuest = false;
+                            if (markTheQuestComplete)
+                            {
+                                QuestManager.Instance.MarkQuestComplete(questToMark);
+                            }
+                            else
+                            {
+                                QuestManager.Instance.MarkQuestComplete(questToMark);
+
+                            }
+                        }
                     }
                     else
                     {
@@ -57,6 +75,13 @@ public class DialogueController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ActivateQuestAtTheEnd(string questName, bool markAsComplete)  
+    {
+      questToMark = questName;
+      markTheQuestComplete = markAsComplete;
+      shouldMarkQuest = true;
     }
 
     public void ActivateDialog(string[] newsSentecesToUse)

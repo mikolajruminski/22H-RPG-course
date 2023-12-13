@@ -6,10 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Town.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: adda95c7f73981b419cc0451fd1eb7d8
+  - enabled: 1
+    path: Assets/Scenes/Town2.unity
+    guid: d76cd6fd9ba659a40aa2908a420fa8d2
   - enabled: 1
     path: Assets/Scenes/Mountains.unity
     guid: 98d2d69dc5aa1314aa0d0178d7d083d5
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: caac8715f493f484386afba08887e911
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 992f9656a30658a4da58769912bd3c97, type: 2}

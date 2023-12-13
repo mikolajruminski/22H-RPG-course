@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - s
   m_SortingLayers:
   - name: Background
     uniqueID: 2253641127
@@ -46,4 +46,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3480197321
+    locked: 0
+  - name: BattleBackground
+    uniqueID: 3609249891
+    locked: 0
+  - name: BattleCharacters
+    uniqueID: 2411529949
     locked: 0

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private PlayerStats[] playerStats;
-    public bool gameMenuOpened, dialogBoxOpened, shopOpened;
+    public bool gameMenuOpened, dialogBoxOpened, shopOpened, battleIsActive;
     public int currentGold;
     // Start is called before the first frame update
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameMenuOpened || dialogBoxOpened || shopOpened)
+        if (gameMenuOpened || dialogBoxOpened || shopOpened || battleIsActive)
         {
             Player.Instance.deactivatedMovement = true;
         }
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         SavingPlayerPosition();
         SavingPlayerStats();
+        SaveCurrentScene();
 
         PlayerPrefs.SetInt("Number_Of_Items", Inventory.Instance.ReturnItemsList().Count);
 
@@ -144,6 +146,11 @@ public class GameManager : MonoBehaviour
                 itemToAdd.amountOfStacks = itemAmount;
             }
         }
+    }
+
+    private void SaveCurrentScene()
+    {
+        PlayerPrefs.SetString("Current_Scene", SceneManager.GetActiveScene().name);
     }
 
     private void LoadPlayerStats()

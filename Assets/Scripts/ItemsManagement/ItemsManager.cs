@@ -78,6 +78,7 @@ public class ItemsManager : MonoBehaviour
         {
             Inventory.Instance.AddItems(this);
             gameObject.SetActive(false);
+            AudioManager.Instance.PlaySFX(2);
         }
     }
 }

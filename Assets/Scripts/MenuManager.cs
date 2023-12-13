@@ -159,13 +159,16 @@ public class MenuManager : MonoBehaviour
     {
         Inventory.Instance.RemoveItems(activeItem);
         UpdateItemsInventory();
+        AudioManager.Instance.PlaySFX(8);
     }
 
     public void UseItem(int characterToUseOn)
     {
         activeItem.UseItem(characterToUseOn);
         OpenCharacterChoice();
-        DiscardItem();
+        Inventory.Instance.RemoveItems(activeItem);
+        UpdateItemsInventory();
+        AudioManager.Instance.PlaySFX(7);
     }
 
     public void OpenCharacterChoice()

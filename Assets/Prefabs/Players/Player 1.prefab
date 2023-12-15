@@ -98,7 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  attacksAvailable: []
+  attacksAvailable:
+  - Blue Fireball
+  - Laser
+  - Lightning
+  - Acid
   characterName: Healer
   currentHP: 0
   maxHP: 0
